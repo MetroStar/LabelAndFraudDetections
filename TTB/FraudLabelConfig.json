@@ -1,0 +1,5 @@
+{
+"model_name": "art", 
+"scale_factor_for_threshold": 1.0, 
+"target_image_file_name":"whatever.png"
+}
