@@ -1,1 +1,1 @@
-{"model_name": "linear", "percentage_of_threshold": "100"}
+{"model_name": "art", "scale_factor_for_threshold": 1.0, "test_image_path_name":"/Users/jkim/ML_FraudDetections/TTB/TestData/label_fraud/wine_label_fraud/images", "target_image_file_name":"/Users/jkim/ML_FraudDetections/TTB/TestData/label_fraud/wine_label_fraud/Wine_Label_1.png"}
