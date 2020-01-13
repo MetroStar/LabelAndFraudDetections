@@ -8,7 +8,7 @@ Used for the TTB efforts to detect fraudulent labels and formulas
 # From the SageMaker Homepage select "Open Jupyter"
 ![test info](images/SageMaker_Homepage.png)
 
-# From the Jupyter Notebook "Upload" LabelValidation.ipynb, and labelImages.zip
+# From the Jupyter Notebook "Upload" LabelValidation.ipynb, and create labelImages.zip from TestData directory
 ![test info](images/Upload_Image.png)
 
 # Unzip labelImages.zip in a terminal
@@ -27,7 +27,7 @@ Used for the TTB efforts to detect fraudulent labels and formulas
 # From the SageMaker Homepage select "Open Jupyter"
 ![test info](images/SageMaker_Homepage.png)
 
-# From the Jupyter Notebook "Upload" FormulaFraudDetection.ipynb, and formula_fraud.zip
+# From the Jupyter Notebook "Upload" FormulaFraudDetection.ipynb, and create formula_fraud.zip from TestData directory
 ![test info](images/Upload_Image.png)
 
 # Unzip formula_fraud.zip in a terminal
