@@ -1,6 +1,6 @@
 {
 "model_name": "art", 
-"scale_factor_for_threshold": 0.65, 
-"target_image_file_name":"test66.png",
+"scale_factor_for_threshold": 0.545, 
+"target_image_file_name":"test66.jpg",
 "target_directory":"labelImages"
 }
