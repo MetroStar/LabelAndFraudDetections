@@ -61,10 +61,6 @@ def GenerateModelLinear(target_image_file_name, l2_reg, x):
     max_histo_level = int(x_out_1_r.max()/bin_group + 1)*bin_group
     num_bins = 2*max_histo_level
     be_l, hist_l = np.histogram(x_out_1_r, bins=num_bins, range=[0.0, max_histo_level], density = True)
-    
-    #2 lines below - Debugging purposes
-    #plt.bar(hist_l[1:-1], be_l[1:])
-    #plt.show()
 
     # Calculate the
     be_h, hist_h = np.histogram(x_out_2_r, bins=num_bins, range=[0.0, max_histo_level], density = True)
@@ -137,13 +133,7 @@ def GenerateModelArt(target_image_file_name, l2_reg, x):
     num_bins = 200
 
     # Calculate the histogram of target label
-
-    #plt.plot(x_out_1_r)
-    #plt.show()
     be_l, hist_l = np.histogram(x_out_1_only, bins=num_bins, range=[0, max_histo_level], density = True)
-    #plt.bar(hist_l[1:-1], be_l[1:])
-    #plt.show()
-
     be_h, hist_h = np.histogram(x_out_2_r, bins=num_bins, range=[0, max_histo_level], density = True)
 
     cor01 = np.dot(be_l[:], be_l[:])/num_bins
@@ -161,7 +151,6 @@ def DisplayFraudulentLabelsLinear(mypath, percent_thres, model_1, be_l, num_bins
     file_list = []
     file_name_list = []
     for filename in glob.glob(mypath + '*.*'):
-        
         if filename in target_image_file_name:
             continue
         else:
@@ -198,7 +187,6 @@ def DisplayFraudulentLabelsLinear(mypath, percent_thres, model_1, be_l, num_bins
             file_name_list.append(fn)
 
     # Plot the fraudulent beer labels
-    #print(len(img_list))
     num_figs = 5
     num_blocks = int(len(img_list)/num_figs)
     index = 0
