@@ -13,7 +13,6 @@ import numpy as np
 import os
 import glob
 import json
-
 import pytest
 
 seed(200)
