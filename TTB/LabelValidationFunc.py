@@ -304,6 +304,10 @@ def DisplayFraudulentLabelsArt(mypath, percent_thres, label_model, be_l, cor01,
     return file_name_list
 
 def DisplayNonFraudulentLabels(file_name_list, mypath):
+    ConfigJson = {}
+    with open('FraudLabelConfig.json', 'r') as inpfile:
+        ConfigJson = json.load(inpfile)
+    target_filename_name = ConfigJson['target_image_file_name']
 
     file_list = []
     num_figs = 5
@@ -313,6 +317,10 @@ def DisplayNonFraudulentLabels(file_name_list, mypath):
     img_list = []
     img_cnt = 0
     for fn in file_list:
+        filename_array = fn.split('/')
+        if filename_array[-1] in target_filename_name:
+            continue
+            
         # Load input beer label image
         subject02 = Image.open(fn)
         # Normalize input beer labe image
