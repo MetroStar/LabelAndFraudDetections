@@ -6,7 +6,7 @@ Used for the TTB efforts to detect fraudulent labels and formulas
 
 # Configure to run in Sagemaker
 - From the SageMaker Homepage select "Open Jupyter"
-- Inside the Jupyter Notebook "Upload" LabelValidation.ipynb, FraudLabelConfig.json, and create labelImages.tar from TestData directory
+- Inside the Jupyter Notebook "Upload" LabelValidation.ipynb, LabelValidationFunc.py, FraudLabelConfig.json, and create labelImages.tar from TestData directory
 - Select Upload twice to upload properly
 
 <img style="float: left;" src="TTB/images/SageMaker_Homepage.png"/>
@@ -49,14 +49,13 @@ Used for the TTB efforts to detect fraudulent labels and formulas
 - Open a terminal
 - Go to the terminal, cd to SageMaker, mkdir TestData, and in TestData tar xvf formula_fraud.tar
 - Click to open FormulaFraudDetection.ipynb
-- When in  Jupyter Notebook, need to use the conda_python3 kernel 
-- If UI asks to select Kernel upon opening notebook, enter X, and cancel
-- Make certain that you are using the correct kernel "conda_tensorflow_p36" kernel
 
 <img style="float: left;" src="TTB/images/Get_To_Terminal.png"/>
 
 <img style="float: left;" src="TTB/images/Terminal_SageMaker.png"/>
 
-<img style="float: left;" src="TTB/images/Change_Kernel.png"/>
+# When in  Jupyter Notebook, need to use the conda_python3 kernel
+- If UI asks to select Kernel upon opening notebook, enter X, and cancel
+- Make certain that you are using the correct kernel "conda_tensorflow_p36" kernel
 
-<img style="float: left;" src="TTB/images/Kernel_Version.png"/>
+<img style="float: left;" src="TTB/images/Change_Kernel.png"/>
