@@ -180,7 +180,7 @@ def DisplayFraudulentLabelsLinear(mypath, percent_thres, model_1, be_l, num_bins
         cor02 = sum(np.abs(be_l[1:] - be_h[1:]))
 
         # Threshold the correlation product to determine fraudulence
-        if (cor02 < similar_diff * percent_thres):
+        if cor02 < similar_diff * percent_thres:
             img_list.append(test_img_array)
             file_name_list.append(fn)
 
@@ -188,23 +188,23 @@ def DisplayFraudulentLabelsLinear(mypath, percent_thres, model_1, be_l, num_bins
     num_figs = 5
     num_blocks = int(len(img_list) / num_figs)
     index = 0
-    for kk in range(num_blocks):
+    for block in range(num_blocks):
         (a1, a2) = plt.subplots(1, 5, figsize=(16, 16))
-        for ii in range(5):
-            a2[ii].imshow(img_list[index])
-            a2[ii].axis('off')
+        for image_index in range(5):
+            a2[image_index].imshow(img_list[index])
+            a2[image_index].axis('off')
             index += 1
         plt.show()
 
     left_over = len(img_list) % num_figs
-    if (left_over > 1):
+    if left_over > 1:
         (a1, a2) = plt.subplots(1, left_over, figsize=(10, 10))
-        for ii in range(left_over):
-            a2[ii].imshow(img_list[index])
-            a2[ii].axis('off')
+        for image_index in range(left_over):
+            a2[image_index].imshow(img_list[index])
+            a2[image_index].axis('off')
             index += 1
         plt.show()
-    elif (left_over == 1):
+    elif left_over == 1:
         plt.subplots(1, 1, figsize=(10, 10))
         plt.imshow(img_list[index])
         plt.axis('off')
@@ -255,7 +255,7 @@ def DisplayFraudulentLabelsArt(mypath, percent_thres, label_model, be_l, cor01,
         print(diff)
 
         # Threshold the correlation product to determine fraudulence
-        if (diff < similar_diff * percent_thres):
+        if diff < similar_diff * percent_thres:
             img_list.append(subj02_a)
             file_name_list.append(fn)
 
@@ -265,22 +265,22 @@ def DisplayFraudulentLabelsArt(mypath, percent_thres, label_model, be_l, cor01,
     index = 0
     for kk in range(num_blocks):
         (a1, a2) = plt.subplots(1, 5, figsize=(16, 16))
-        for ii in range(5):
-            a2[ii].imshow(img_list[index])
-            a2[ii].axis('off')
+        for image_index in range(5):
+            a2[image_index].imshow(img_list[index])
+            a2[image_index].axis('off')
             index += 1
         plt.show()
 
     left_over = len(img_list) % num_figs
 
-    if (left_over > 1):
+    if left_over > 1:
         (a1, a2) = plt.subplots(1, left_over, figsize=(10, 10))
-        for ii in range(left_over):
-            a2[ii].imshow(img_list[index])
-            a2[ii].axis('off')
+        for image_index in range(left_over):
+            a2[image_index].imshow(img_list[index])
+            a2[image_index].axis('off')
             index += 1
         plt.show()
-    elif (left_over == 1):
+    elif left_over == 1:
         plt.subplots(1, 1, figsize=(10, 10))
         plt.imshow(img_list[index])
         plt.axis('off')
@@ -320,24 +320,24 @@ def DisplayNonFraudulentLabels(file_name_list, mypath):
             img_cnt += 1
 
         # Display non-fraudulent beer labels
-        if (img_cnt >= num_figs):
+        if img_cnt >= num_figs:
             (a1, a2) = plt.subplots(1, 5, figsize=(15, 15))
             index = 0
-            for ii in range(5):
-                a2[ii].imshow(img_list[index])
-                a2[ii].axis('off')
+            for image_index in range(5):
+                a2[image_index].imshow(img_list[index])
+                a2[image_index].axis('off')
                 index += 1
             plt.show()
             img_list = []
             img_cnt = 0
 
-    if (img_cnt > 0):
-        if (img_cnt > 1):
+    if img_cnt > 0:
+        if img_cnt > 1:
             index = 0
             (a1, a2) = plt.subplots(1, img_cnt, figsize=(10, 10))
-            for ii in range(img_cnt):
-                a2[ii].imshow(img_list[index])
-                a2[ii].axis('off')
+            for image_index in range(img_cnt):
+                a2[image_index].imshow(img_list[index])
+                a2[image_index].axis('off')
                 index += 1
             plt.show()
         else:
