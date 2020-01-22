@@ -189,19 +189,19 @@ def DisplayFraudulentLabelsLinear(mypath, percent_thres, model_1, be_l, num_bins
     num_blocks = int(len(img_list) / num_figs)
     index = 0
     for block in range(num_blocks):
-        (a1, a2) = plt.subplots(1, 5, figsize=(16, 16))
+        (sub_plot1, sub_plot2) = plt.subplots(1, 5, figsize=(16, 16))
         for image_index in range(5):
-            a2[image_index].imshow(img_list[index])
-            a2[image_index].axis('off')
+            sub_plot2[image_index].imshow(img_list[index])
+            sub_plot2[image_index].axis('off')
             index += 1
         plt.show()
 
     left_over = len(img_list) % num_figs
     if left_over > 1:
-        (a1, a2) = plt.subplots(1, left_over, figsize=(10, 10))
+        (sub_plot1, sub_plot2) = plt.subplots(1, left_over, figsize=(10, 10))
         for image_index in range(left_over):
-            a2[image_index].imshow(img_list[index])
-            a2[image_index].axis('off')
+            sub_plot2[image_index].imshow(img_list[index])
+            sub_plot2[image_index].axis('off')
             index += 1
         plt.show()
     elif left_over == 1:
@@ -232,18 +232,18 @@ def DisplayFraudulentLabelsArt(mypath, percent_thres, label_model, be_l, cor01,
     img_list = []
     for fn in file_list:
         # Load test beer label image
-        subject02 = Image.open(fn)
+        test_label = Image.open(fn)
 
         # Normalize beer label image
-        subject02 = subject02.convert('RGB')
-        subj02 = subject02.resize((224, 224))
-        subj02_a = np.array(subj02)
-        save_0 = subj02_a[:, :, 0]
-        save_1 = subj02_a[:, :, 1]
-        x[0] = subj02_a
+        test_label = test_label.convert('RGB')
+        test_label_resized = test_label.resize((224, 224))
+        test_label_array = np.array(test_label_resized)
+        save_0 = test_label_array[:, :, 0]
+        save_1 = test_label_array[:, :, 1]
+        x[0] = test_label_array
 
-        x[0] = subj02_a
-        x[1] = subj02_a
+        x[0] = test_label_array
+        x[1] = test_label_array
         x_out_1 = label_model.predict(x[0:2])
         x_out_1_r = np.ravel(x_out_1[0])
         x_out_2_r = np.ravel(x_out_1[1])
@@ -256,28 +256,28 @@ def DisplayFraudulentLabelsArt(mypath, percent_thres, label_model, be_l, cor01,
 
         # Threshold the correlation product to determine fraudulence
         if diff < similar_diff * percent_thres:
-            img_list.append(subj02_a)
+            img_list.append(test_label_array)
             file_name_list.append(fn)
 
     # Plot the fraudulent beer labels
     num_figs = 5
     num_blocks = int(len(img_list) / num_figs)
     index = 0
-    for kk in range(num_blocks):
-        (a1, a2) = plt.subplots(1, 5, figsize=(16, 16))
+    for block in range(num_blocks):
+        (sub_plot1, sub_plot2) = plt.subplots(1, 5, figsize=(16, 16))
         for image_index in range(5):
-            a2[image_index].imshow(img_list[index])
-            a2[image_index].axis('off')
+            sub_plot2[image_index].imshow(img_list[index])
+            sub_plot2[image_index].axis('off')
             index += 1
         plt.show()
 
     left_over = len(img_list) % num_figs
 
     if left_over > 1:
-        (a1, a2) = plt.subplots(1, left_over, figsize=(10, 10))
+        (sub_plot1, sub_plot2) = plt.subplots(1, left_over, figsize=(10, 10))
         for image_index in range(left_over):
-            a2[image_index].imshow(img_list[index])
-            a2[image_index].axis('off')
+            sub_plot2[image_index].imshow(img_list[index])
+            sub_plot2[image_index].axis('off')
             index += 1
         plt.show()
     elif left_over == 1:
@@ -308,24 +308,24 @@ def DisplayNonFraudulentLabels(file_name_list, mypath):
             continue
 
         # Load input beer label image
-        subject02 = Image.open(fn)
+        test_label = Image.open(fn)
 
         # Normalize input beer labe image
-        subject02 = subject02.convert('RGB')
-        subj02 = subject02.resize((224, 224))
-        subj02_a = np.array(subj02)
+        test_label = test_label.convert('RGB')
+        test_label_resized = test_label.resize((224, 224))
+        test_label_array = np.array(test_label_resized)
 
         if fn not in file_name_list:
-            img_list.append(subj02_a)
+            img_list.append(test_label_array)
             img_cnt += 1
 
         # Display non-fraudulent beer labels
         if img_cnt >= num_figs:
-            (a1, a2) = plt.subplots(1, 5, figsize=(15, 15))
+            (sub_plot1, sub_plot2) = plt.subplots(1, 5, figsize=(15, 15))
             index = 0
             for image_index in range(5):
-                a2[image_index].imshow(img_list[index])
-                a2[image_index].axis('off')
+                sub_plot2[image_index].imshow(img_list[index])
+                sub_plot2[image_index].axis('off')
                 index += 1
             plt.show()
             img_list = []
@@ -334,10 +334,10 @@ def DisplayNonFraudulentLabels(file_name_list, mypath):
     if img_cnt > 0:
         if img_cnt > 1:
             index = 0
-            (a1, a2) = plt.subplots(1, img_cnt, figsize=(10, 10))
+            (sub_plot1, sub_plot2) = plt.subplots(1, img_cnt, figsize=(10, 10))
             for image_index in range(img_cnt):
-                a2[image_index].imshow(img_list[index])
-                a2[image_index].axis('off')
+                sub_plot2[image_index].imshow(img_list[index])
+                sub_plot2[image_index].axis('off')
                 index += 1
             plt.show()
         else:
