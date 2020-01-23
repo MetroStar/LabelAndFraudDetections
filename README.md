@@ -39,8 +39,12 @@ Used for the TTB efforts to detect fraudulent labels and formulas
 <img style="float: left;" src="TTB/images/Tensorflow_Kernel_Version.png"/>
 <br/><br/>
 
-# Instructions to configure FormulaFraudDetection.ipynb
-- When in a local laptop/desktop, just need to `pip3 install -r requirements.txt`
+# Instructions to configure FormulaFraudDetection.ipynb locally
+- It is highly recommended to use a conda or other virtual environment when running this project to avoid any potential conflicts
+- Install Anaconda or conda for your operating system [here](https://docs.anaconda.com/anaconda/install/)
+- In the root directory of the project create a new conda environment using `conda create --name <your_env_name>`
+- Activate that environment using `conda activate <your_env_name>`
+- While also in the root directory of the project, run `pip3 install -r requirements.txt`
 
 # From the SageMaker Homepage select "Open Jupyter"
 - From the Jupyter Notebook "Upload" FormulaFraudDetection.ipynb, and create formula_fraud.tar from TestData directory
